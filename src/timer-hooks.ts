@@ -1,8 +1,5 @@
 import * as React from "react";
 
-/**
- * setInterval.
- */
 export function useInterval(
     onInterval: () => void,
     interval: number,
@@ -29,9 +26,6 @@ export function useInterval(
     }, [interval, pause]);
 }
 
-/**
- * setTimeout.
- */
 export function useTimeout(
     onTimeout: () => void,
     timeout: number,
@@ -105,18 +99,29 @@ export function useTimer(
     {
         if (!pause)
         {
-            // Starts a new timer when the interval or pause is changed.
-            const timer = setInterval(() =>
+            if (ref.current.timeRemaining <= 0)
             {
-                ref.current.timeRemaining -= interval;
-                if (ref.current.timeRemaining <= 0)
+                ref.current.onTimeout();
+                return;
+            }
+            else
+            {
+                // Starts a new timer when the interval or pause is changed.
+                const timer = setInterval(() =>
                 {
-                    clearInterval(timer);
-                    ref.current.onTimeout();
-                }
-                ref.current.onInterval();
-            }, interval);
-            return () => clearInterval(timer);
+                    ref.current.timeRemaining -= interval;
+                    if (ref.current.timeRemaining <= 0)
+                    {
+                        clearInterval(timer);
+                        ref.current.onTimeout();
+                    }
+                    else
+                    {
+                        ref.current.onInterval();
+                    }
+                }, interval);
+                return () => clearInterval(timer);
+            }
         }
         return;
     }, [interval, pause]);
