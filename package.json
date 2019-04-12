@@ -1,0 +1,52 @@
+{
+    "name": "react-fxxking-hooks",
+    "version": "1.0.0",
+    "description": "React hooks...",
+    "license": "WTFPL",
+    "main": "dist/lib/index.js",
+    "module": "dist/es/index.js",
+    "types": "dist/types/index.d.ts",
+    "author": {
+        "email": "xiaochao.k@gmail.com",
+        "name": "nonoroazoro",
+        "url": "https://github.com/nonoroazoro"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/nonoroazoro/react-fxxking-hooks"
+    },
+    "homepage": "https://github.com/nonoroazoro/react-fxxking-hooks",
+    "bugs": {
+        "url": "https://github.com/nonoroazoro/react-fxxking-hooks/issues"
+    },
+    "keywords": [
+        "react",
+        "react-hooks",
+        "typescript"
+    ],
+    "scripts": {
+        "clean": "rimraf dist/*",
+        "build": "npm run clean && npm run build:es && npm run build:lib",
+        "build:es": "tsc --project ./tsconfig.es.json",
+        "build:lib": "tsc --project ./tsconfig.lib.json"
+    },
+    "dependencies": {
+        "react": "^16.8.6"
+    },
+    "devDependencies": {
+        "@types/react": "^16.8.13",
+        "husky": "^1.3.1",
+        "lint-staged": "^8.1.5",
+        "rimraf": "^2.6.3",
+        "tslint": "^5.15.0",
+        "tslint-react": "^4.0.0",
+        "tslint-react-hooks": "^2.0.0",
+        "typescript": "^3.4.3"
+    },
+    "lint-staged": {
+        "./src/**/*.tsx?": [
+            "tslint",
+            "git add"
+        ]
+    }
+}
