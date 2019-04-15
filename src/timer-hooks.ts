@@ -67,7 +67,7 @@ export function useTimeout(
 }
 
 /**
- * Advanced timer which supports both `interval`, `timeout`.
+ * Advanced timer which supports both `interval` and `timeout`.
  */
 export function useTimer(
     onInterval: () => void,
