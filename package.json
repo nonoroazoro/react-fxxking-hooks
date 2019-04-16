@@ -1,7 +1,7 @@
 {
     "name": "react-fxxking-hooks",
     "version": "1.0.0",
-    "description": "React hooks...",
+    "description": "Some of the react hooks...",
     "license": "WTFPL",
     "main": "dist/lib/index.js",
     "module": "dist/es/index.js",
@@ -48,5 +48,8 @@
             "tslint",
             "git add"
         ]
-    }
+    },
+    "files": [
+        "dist"
+    ]
 }
