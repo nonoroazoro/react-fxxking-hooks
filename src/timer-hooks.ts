@@ -1,5 +1,12 @@
 import * as React from "react";
 
+/**
+ * setInterval hooks version.
+ *
+ * @param {() => void} onInterval Will be called on each interval.
+ * @param {number} interval The interval time in `milliseconds`.
+ * @param {boolean} [pause=false] Indicates whether the timer should be paused.
+ */
 export function useInterval(
     onInterval: () => void,
     interval: number,
@@ -26,6 +33,13 @@ export function useInterval(
     }, [interval, pause]);
 }
 
+/**
+ * setTimeout hooks version.
+ *
+ * @param {() => void} onTimeout Will be called when the timeout is reached.
+ * @param {number} timeout The timeout in `milliseconds`.
+ * @param {boolean} [pause=false] Indicates whether the timer should be paused.
+ */
 export function useTimeout(
     onTimeout: () => void,
     timeout: number,
@@ -68,6 +82,12 @@ export function useTimeout(
 
 /**
  * Advanced timer which supports both `interval` and `timeout`.
+ *
+ * @param {() => void} onInterval Will be called on each interval.
+ * @param {number} interval The interval time in `milliseconds`.
+ * @param {() => void} onTimeout Will be called when the timeout is reached.
+ * @param {number} timeout The timeout in `milliseconds`.
+ * @param {boolean} [pause=false] Indicates whether the timer should be paused.
  */
 export function useTimer(
     onInterval: () => void,
