@@ -1,7 +1,7 @@
 {
     "name": "react-fxxking-hooks",
-    "version": "1.0.0",
-    "description": "Some of the react hooks...",
+    "version": "1.0.1",
+    "description": "Some useful react hooks...",
     "license": "WTFPL",
     "main": "dist/lib/index.js",
     "module": "dist/es/index.js",
@@ -30,7 +30,7 @@
         "build:es": "tsc --project ./tsconfig.es.json",
         "build:lib": "tsc --project ./tsconfig.lib.json"
     },
-    "dependencies": {
+    "peerDependencies": {
         "react": "^16.8.6"
     },
     "devDependencies": {
