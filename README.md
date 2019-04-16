@@ -1,7 +1,7 @@
 # react-fxxking-hooks
 
 
-## Installation
+## Install
 
 > npm i -S [react-fxxking-hooks](https://www.npmjs.com/package/react-fxxking-hooks)
 
