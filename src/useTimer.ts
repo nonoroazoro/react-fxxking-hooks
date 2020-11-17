@@ -60,7 +60,7 @@ export function useTimer(
                         ref.current.onInterval();
                     }
                 }, interval);
-                return () => clearInterval(timer);
+                return () => { clearInterval(timer); };
             }
         }
         return;

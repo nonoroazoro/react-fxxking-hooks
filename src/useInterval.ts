@@ -26,8 +26,8 @@ export function useInterval(
         if (!pause)
         {
             // Starts a new timer when the interval or pause is changed.
-            const timer = setInterval(() => ref.current(), interval);
-            return () => clearInterval(timer);
+            const timer = setInterval(() => { ref.current(); }, interval);
+            return () => { clearInterval(timer); };
         }
         return;
     }, [interval, pause]);

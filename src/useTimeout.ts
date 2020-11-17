@@ -41,8 +41,8 @@ export function useTimeout(
             ref.current.startTime = Date.now();
 
             // Starts a new timer when the timeout or pause is changed.
-            const timer = setTimeout(() => ref.current.onTimeout(), ref.current.actualTimeout);
-            return () => clearTimeout(timer);
+            const timer = setTimeout(() => { ref.current.onTimeout(); }, ref.current.actualTimeout);
+            return () => { clearTimeout(timer); };
         }
     }, [timeout, pause]);
 }
