@@ -521,10 +521,10 @@ escape-string-regexp@^1.0.5:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-config-zoro@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-zoro/-/eslint-config-zoro-4.0.0.tgz#78496fe5a05cb0b7c39f4336621459f352d07149"
-  integrity sha512-RbX1FWMPTWqG2f8WsGGGt4rpE4lhqu594GYrU0UF1yhy4QglUk6Bjmld4xydJekgxFSg8nTRXbxCTQ6BwkzmFg==
+eslint-config-zoro@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-zoro/-/eslint-config-zoro-4.0.1.tgz#efb00b6cd47dc96140e85925be8baf25d27a95f4"
+  integrity sha512-Af3DYfF7CMH09Z/lGzq0ih29kDWUVphwRlm3Ns205VacehlgO02qPthoypRnmV7ghV9a3Lqzt1/MMtKXz7qfaw==
 
 eslint-plugin-react-hooks@^4.2.0:
   version "4.2.0"
