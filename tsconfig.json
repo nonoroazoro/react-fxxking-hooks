@@ -1,6 +1,5 @@
 {
     "compilerOptions": {
-        "rootDir": "src",
         "module": "es6",
         "target": "es5",
         "downlevelIteration": true,
@@ -25,8 +24,7 @@
             "es6"
         ]
     },
-    "exclude": [
-        "tests",
-        "scripts"
+    "include": [
+        "src"
     ]
 }
