@@ -12,3 +12,4 @@
     - [`useInterval`](./src/useInterval.ts) &mdash; Hooks version of `setInterval`.
     - [`useTimeout`](./src/useTimeout.ts) &mdash; Hooks version of `setTimeout`.
     - [`useTimer`](./src/useTimer.ts) &mdash; Advanced timer which supports both `interval` and `timeout`.
+    - [`useToggle`](./src/useToggle.ts) &mdash; Toggles `boolean` state.
