@@ -25,24 +25,27 @@
         "typescript"
     ],
     "scripts": {
+        "prepublishOnly": "npm run build",
+        "prebuild": "npm run clean",
         "clean": "rimraf dist/*",
-        "build": "npm run clean && npm run build:es && npm run build:lib",
+        "build": "npm run build:es && npm run build:lib && npm run build:types",
         "build:es": "tsc --project ./tsconfig.es.json",
-        "build:lib": "tsc --project ./tsconfig.lib.json"
+        "build:lib": "tsc --project ./tsconfig.lib.json",
+        "build:types": "tsc --project ./tsconfig.types.json"
     },
     "devDependencies": {
-        "@types/react": "^16.9.56",
-        "@typescript-eslint/eslint-plugin": "^4.8.0",
-        "@typescript-eslint/parser": "^4.8.0",
-        "eslint": "^7.13.0",
-        "eslint-config-zoro": "^4.0.1",
-        "eslint-plugin-react": "^7.21.5",
+        "@types/react": "^17.0.3",
+        "@typescript-eslint/eslint-plugin": "^4.18.0",
+        "@typescript-eslint/parser": "^4.18.0",
+        "eslint": "^7.22.0",
+        "eslint-config-zoro": "^4.3.0",
+        "eslint-plugin-react": "^7.22.0",
         "eslint-plugin-react-hooks": "^4.2.0",
-        "husky": "^4.3.0",
-        "lint-staged": "^10.5.1",
+        "husky": "^4.3.8",
+        "lint-staged": "^10.5.4",
         "react": "^17.0.1",
         "rimraf": "^3.0.2",
-        "typescript": "^4.0.5"
+        "typescript": "^4.2.3"
     },
     "peerDependencies": {
         "react": ">=16.8.0"
