@@ -2,10 +2,5 @@
     "extends": "./tsconfig.json",
     "compilerOptions": {
         "allowJs": true
-    },
-    "include": [
-        "src",
-        "tests",
-        "scripts"
-    ]
+    }
 }
