@@ -1,7 +1,7 @@
-import * as React from "react";
+import { useEffect, useRef } from "react";
 
 /**
- * setInterval hooks version.
+ * Hooks version of setInterval.
  *
  * @param {() => void} onInterval Will be called on each interval.
  * @param {number} interval The interval time in `milliseconds`.
@@ -13,15 +13,15 @@ export function useInterval(
     pause: boolean = false
 )
 {
-    const ref = React.useRef(onInterval);
+    const ref = useRef(onInterval);
 
     // Updates when the callback is changed.
-    React.useEffect(() =>
+    useEffect(() =>
     {
         ref.current = onInterval;
     }, [onInterval]);
 
-    React.useEffect(() =>
+    useEffect(() =>
     {
         if (!pause)
         {

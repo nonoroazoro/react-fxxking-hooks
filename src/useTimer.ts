@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useEffect, useRef } from "react";
 
 /**
  * Advanced timer which supports both `interval` and `timeout`.
@@ -17,25 +17,25 @@ export function useTimer(
     pause: boolean = false
 )
 {
-    const ref = React.useRef({ onInterval, onTimeout, timeRemaining: timeout });
+    const ref = useRef({ onInterval, onTimeout, timeRemaining: timeout });
 
     // Updates when the timeout is changed.
-    React.useEffect(() =>
+    useEffect(() =>
     {
         ref.current.timeRemaining = timeout;
     }, [timeout]);
 
     // Updates when the callbacks are changed.
-    React.useEffect(() =>
+    useEffect(() =>
     {
         ref.current.onInterval = onInterval;
     }, [onInterval]);
-    React.useEffect(() =>
+    useEffect(() =>
     {
         ref.current.onTimeout = onTimeout;
     }, [onTimeout]);
 
-    React.useEffect(() =>
+    useEffect(() =>
     {
         if (!pause)
         {
