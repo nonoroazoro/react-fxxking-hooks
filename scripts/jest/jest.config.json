@@ -1,0 +1,22 @@
+{
+    "rootDir": "../../",
+    "coverageDirectory": "<rootDir>/@coverage",
+    "globals": {
+        "ts-jest": {
+            "tsconfig": "tsconfig.jest.json"
+        }
+    },
+    "moduleFileExtensions": [
+        "js",
+        "ts",
+        "tsx"
+    ],
+    "setupFilesAfterEnv": [
+        "<rootDir>/scripts/jest/jest.setup.ts"
+    ],
+    "testRegex": "/tests/.+\\.(test|spec)\\.tsx?$",
+    "transform": {
+        "^.+\\.tsx?$": "ts-jest"
+    },
+    "verbose": true
+}
