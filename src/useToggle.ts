@@ -1,4 +1,5 @@
-import { Reducer, useReducer } from "react";
+import { useReducer } from "react";
+import type { Reducer } from "react";
 
 /**
  * Toggles boolean state.
