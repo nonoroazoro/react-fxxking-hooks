@@ -9,8 +9,8 @@
 ## Hooks
 
 - **DOM**
-    - [`useHover`](./src/useHover.ts) &mdash; Tracks the hover state via `mouseenter` and `mouseleave`.
-    - [`useScroll`](./src/useScroll.ts) &mdash; Tracks the scroll state.
+    - [`useHover`](./src/useHover.ts) &mdash; Tracks the hover state via `mouseenter` and `mouseleave`, **supports debounce**.
+    - [`useScroll`](./src/useScroll.ts) &mdash; Tracks the scroll state, **supports debounce**.
 
 - **State**
     - [`useToggle`](./src/useToggle.ts) &mdash; Toggles `boolean` state.
