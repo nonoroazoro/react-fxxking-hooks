@@ -1,5 +1,7 @@
 # react-fxxking-hooks
 
+Collection of React Hooks.
+
 
 ## Install
 
