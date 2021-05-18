@@ -4,7 +4,7 @@ import type { RefObject } from "react";
 import type { ScrollState, UseScrollOptions } from "./types";
 
 /**
- * Tracks the scroll position of the DOM element.
+ * Tracks the scroll state of the DOM element.
  *
  * @param {RefObject<HTMLElement>} ref The DOM element.
  * @param {UseScrollOptions} [options] The options.
