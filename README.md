@@ -13,6 +13,7 @@ Collection of React Hooks.
 - **DOM**
     - [`useHover`](./src/useHover.ts) &mdash; Tracks the hover state via `mouseenter` and `mouseleave`, **supports debounce**.
     - [`useScroll`](./src/useScroll.ts) &mdash; Tracks the scroll state, **supports debounce**.
+    - [`useShadowRoot`](./src/useShadowRoot.ts) &mdash; Creates a `shadow DOM tree` for a DOM element.
 
 - **State**
     - [`useToggle`](./src/useToggle.ts) &mdash; Toggles `boolean` state.
