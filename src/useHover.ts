@@ -27,5 +27,5 @@ export function useHover(createElement: ReactElement | ((isHovered: boolean) => 
         setIsHovered(false);
     };
     const clonedElement = cloneElement(element, { onMouseEnter, onMouseLeave });
-    return [clonedElement, isHovered];
+    return [clonedElement, isHovered] as const;
 }
