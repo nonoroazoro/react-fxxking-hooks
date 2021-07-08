@@ -9,19 +9,21 @@ import type { ScrollState, UseScrollOptions } from "./types";
  * @param {RefObject<HTMLElement>} ref The DOM element.
  * @param {UseScrollOptions} [options] The options.
  */
-export function useScroll<T extends HTMLElement>(ref: RefObject<T>, options?: UseScrollOptions)
+export function useScroll(ref: RefObject<HTMLElement>, options?: UseScrollOptions)
 {
-    const optionsRef = useRef({ delay: 200, ...options });
+    const optionsRef = useRef({ delay: 300, ...options });
     useEffect(() =>
     {
-        optionsRef.current = { delay: 200, ...options };
+        optionsRef.current = { delay: 300, ...options };
     }, [options]);
 
     const [scrollState, setScrollState] = useState<ScrollState>({
-        x: 0,
-        y: 0,
-        hasXScrollbar: false,
-        hasYScrollbar: false,
+        scrollLeft: 0,
+        scrollRight: 0,
+        scrollTop: 0,
+        scrollBottom: 0,
+        hasHScrollbar: false,
+        hasVScrollbar: false,
         isScrolling: false,
         topReached: false,
         bottomReached: false,
@@ -49,11 +51,13 @@ export function useScroll<T extends HTMLElement>(ref: RefObject<T>, options?: Us
             timer = window.setTimeout(() =>
             {
                 isScrollingUpdatedRef.current = false;
-                const newScrollState = {
-                    x: scrollable.scrollLeft,
-                    y: scrollable.scrollTop,
-                    hasXScrollbar: scrollable.scrollWidth > scrollable.clientWidth,
-                    hasYScrollbar: scrollable.scrollHeight > scrollable.clientHeight,
+                const newScrollState: ScrollState = {
+                    scrollLeft: scrollable.scrollLeft,
+                    scrollRight: scrollable.scrollWidth - scrollable.scrollLeft,
+                    scrollTop: scrollable.scrollTop,
+                    scrollBottom: scrollable.scrollHeight - scrollable.scrollTop,
+                    hasHScrollbar: scrollable.scrollWidth > scrollable.clientWidth,
+                    hasVScrollbar: scrollable.scrollHeight > scrollable.clientHeight,
                     isScrolling: false,
                     topReached: scrollable.scrollTop === 0,
                     bottomReached: scrollable.scrollTop + scrollable.clientHeight >= scrollable.scrollHeight,

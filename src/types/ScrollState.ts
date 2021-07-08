@@ -4,28 +4,42 @@
 export interface ScrollState
 {
     /**
-     * The `horizontal` position of the scrollbar.
+     * The `horizontal` position of the scrollbar, relative to the `left` edge.
      *
      * If the `horizontal` scrollbar is hidden, this value is `0`。
      */
-    x: number;
+    scrollLeft: number;
 
     /**
-     * The `vertical` position of the scrollbar.
+     * The `horizontal` position of the scrollbar, relative to the `right` edge.
+     *
+     * If the `horizontal` scrollbar is hidden, this value is `0`。
+     */
+    scrollRight: number;
+
+    /**
+     * The `vertical` position of the scrollbar, relative to the `top` edge.
      *
      * If the `vertical` scrollbar is hidden, this value is `0`。
      */
-    y: number;
+    scrollTop: number;
+
+    /**
+     * The `vertical` position of the scrollbar, relative to the `bottom` edge.
+     *
+     * If the `vertical` scrollbar is hidden, this value is `0`。
+     */
+    scrollBottom: number;
 
     /**
      * Indicates whether the `horizontal` scrollbar exists.
      */
-    hasXScrollbar: boolean;
+    hasHScrollbar: boolean;
 
     /**
      * Indicates whether the `vertical` scrollbar exists.
      */
-    hasYScrollbar: boolean;
+    hasVScrollbar: boolean;
 
     /**
      * Indicates whether the scrollbar is scrolling.
