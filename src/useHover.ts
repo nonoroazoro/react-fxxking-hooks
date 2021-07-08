@@ -1,70 +1,31 @@
-import { useEffect, useState } from "react";
-import type { RefObject } from "react";
+import { cloneElement, useState } from "react";
+import type { ReactElement } from "react";
 
 /**
  * Tracks the hover state of the DOM element via `mouseenter` and `mouseleave`.
- *
- * @param {number} [delay] The response delay time in `milliseconds`. Defaults to `100`.
  */
-export function useHover<T extends HTMLElement>(ref: RefObject<T>, delay = 100)
+export function useHover(createElement: ReactElement | ((isHovered: boolean) => ReactElement))
 {
     const [isHovered, setIsHovered] = useState(false);
-
-    useEffect(() =>
+    const element = typeof createElement === "function"
+        ? createElement(isHovered)
+        : createElement;
+    const onMouseEnter = (event: any) =>
     {
-        let timer: number | undefined;
-
-        const _updateIsHovered = (isEnter: boolean) =>
+        if (element.props.onMouseEnter)
         {
-            _clearTimer(timer);
-            if (delay == null || delay <= 0)
-            {
-                setIsHovered(isEnter);
-            }
-            else
-            {
-                timer = window.setTimeout(() =>
-                {
-                    setIsHovered(isEnter);
-                }, delay);
-            }
-        };
-
-        const _handleMouseEnter = () =>
-        {
-            _updateIsHovered(true);
-        };
-
-        const _handleMouseLeave = () =>
-        {
-            _updateIsHovered(false);
-        };
-
-        const element = ref.current;
-        if (element != null)
-        {
-            element.addEventListener("mouseenter", _handleMouseEnter, { passive: true });
-            element.addEventListener("mouseleave", _handleMouseLeave, { passive: true });
+            element.props.onMouseEnter(event);
         }
-
-        return () =>
-        {
-            _clearTimer(timer);
-            if (element)
-            {
-                element.removeEventListener("mouseenter", _handleMouseEnter);
-                element.removeEventListener("mouseleave", _handleMouseLeave);
-            }
-        };
-    }, [delay, ref]);
-
-    return isHovered;
-}
-
-function _clearTimer(timer: number | undefined)
-{
-    if (timer != null)
+        setIsHovered(true);
+    };
+    const onMouseLeave = (event: any) =>
     {
-        window.clearTimeout(timer);
-    }
+        if (element.props.onMouseLeave)
+        {
+            element.props.onMouseLeave(event);
+        }
+        setIsHovered(false);
+    };
+    const clonedElement = cloneElement(element, { onMouseEnter, onMouseLeave });
+    return [clonedElement, isHovered];
 }
