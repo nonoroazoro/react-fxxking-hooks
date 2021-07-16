@@ -53,9 +53,9 @@ export function useScroll(ref: RefObject<HTMLElement>, options?: UseScrollOption
                 isScrollingUpdatedRef.current = false;
                 const newScrollState: ScrollState = {
                     scrollLeft: scrollable.scrollLeft,
-                    scrollRight: scrollable.scrollWidth - scrollable.scrollLeft,
+                    scrollRight: scrollable.scrollWidth - scrollable.scrollLeft - scrollable.clientWidth,
                     scrollTop: scrollable.scrollTop,
-                    scrollBottom: scrollable.scrollHeight - scrollable.scrollTop,
+                    scrollBottom: scrollable.scrollHeight - scrollable.scrollTop - scrollable.clientHeight,
                     hasHScrollbar: scrollable.scrollWidth > scrollable.clientWidth,
                     hasVScrollbar: scrollable.scrollHeight > scrollable.clientHeight,
                     isScrolling: false,
