@@ -20,7 +20,7 @@ export interface ScrollOptions
     isSmooth?: boolean;
 
     /**
-     * Specifies the scroll directrion.
+     * Specifies the scroll direction.
      *
      * Defaults to `vertical`.
      */
